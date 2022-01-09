@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Program Schedule
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Schedule</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-list>
+  <ion-list-header> Schedule </ion-list-header>
+
+  <ion-item *ngFor="let item of schedule">
+    <ion-thumbnail slot="start">
+      <img src="assets/schedule.png" />
+    </ion-thumbnail>
+    <ion-label>
+      <h2>{{item.title}}</h2>
+      <h3>{{item.day}}</h3>
+    </ion-label>
+    <ion-note slot="end" color="success">{{item.time}}</ion-note>
+  </ion-item>
+
+</ion-list>
+
+<ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+  <ion-fab-button (click)="getSchedule()">
+    <ion-icon name="refresh-circle-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>

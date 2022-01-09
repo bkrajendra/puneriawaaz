@@ -1,0 +1,7 @@
+{
+  "name": "puneri-awaaz",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

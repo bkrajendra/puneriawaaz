@@ -1,5 +1,7 @@
 # Puner Awaaz - Online Radio Service
 
+![image info](./raw/logo.jpg)
+
 This repository is starting point for BKs to create radio application.
 
 ---
@@ -35,15 +37,26 @@ the application in the web and play around with it.
 
 ### Build the app for Android/iOS
 
-1. `ionic cap add android`
-2. `ionic cap build android`
+1. `ionic cordova platform add android`
+2. `ionic cordova platform add ios`
 
-This will open up the IDE for your native project (Android Studio for Android Build and
- Xcode for iOS Build).
-Make sure the particular IDE that you're building the app for is installed and
-running on your computer. Note that Xcode is only available on MacOS. Android Studio is
-available on all three platforms (Windows, Linux and MacOS). Now you can build the app through
-your native IDE and use an emulator to preview the actual app on desktop.
+This will add platform support for android and ios. On windows you can only build for android.
+Make sure you have android studio installed and configured.
+
+### Build
+`ionic cordova build android`
+apk can be found at 
+```
+platforms\android\app\build\outputs\apk\debug\app-debug.apk 
+```
+
+
+### Run
+To install and run apk on mobile, 
+1. Attach your phone with data cable to your laptop.
+2. run `adb devices` to list your phone in the list.
+3. Accept the prompt on your mobile to authorize the device.
+4. Run application with `ionic cordova run android`
 
 ### Build the app for the Web.
 

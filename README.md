@@ -1,5 +1,8 @@
 # Puner Awaaz - Online Radio Service
 
+![example workflow](https://github.com/bkrajendra/puneriawaaz/actions/workflows/build.yml/badge.svg)
+
+
 ![image info](./raw/logo.jpg)
 
 This repository is starting point for BKs to create radio application.

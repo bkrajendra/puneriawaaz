@@ -31,7 +31,7 @@ jobs:
         run: npm install
 
       - name: Add Android platform
-        run: ionic cordova platform add android
+        run: ionic cordova platform add android@^9.0.0
 
       - name: Build Android Dev APK
         run: ionic cordova build android

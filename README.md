@@ -17,7 +17,7 @@ Use following instructions for setting up environment.
 
 1. NodeJS -> https://nodejs.org/en/
 2. Ionic CLI -> `npm i -g @ionic/cli`
-3. Android Studio -> https://developer.android.com/studio (Might need JDK)
+3. Android Studio -> https://developer.android.com/studio (Might need JDK https://www.oracle.com/java/technologies/downloads/)
 4. IDE - Visual Studio Code -> https://code.visualstudio.com/
 
 ### Setting up environment

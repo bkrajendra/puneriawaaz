@@ -1,9 +1,6 @@
 {
   "name": "puneri-awaaz",
   "integrations": {
-    "capacitor": {
-      "enabled": false
-    },
     "cordova": {}
   },
   "type": "angular"

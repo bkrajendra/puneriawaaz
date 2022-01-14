@@ -1,8 +1,8 @@
 export interface Schedule {
-    id:number;
+  id: number;
   title: string;
   day: string;
   time: string;
-  created_at:string;
-  update_at:string;
+  created_at: string;
+  update_at: string;
 }

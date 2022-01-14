@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Radio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-fab vertical="center" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="playRadio(playState)">
+      <ion-icon name="play" *ngIf="!playState"></ion-icon>
+      <ion-icon name="stop-sharp" [hidden]="!playState"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="ion-text-center mt">
+    <!-- <ion-progress-bar type="indeterminate" *ngIf="loadingRadio"></ion-progress-bar> -->
+    <ion-spinner id="loader" color="tertiary" *ngIf="loader"></ion-spinner>
+  </div>
+</ion-content>

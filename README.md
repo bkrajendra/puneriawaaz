@@ -5,7 +5,7 @@
 
 ![image info](./raw/logo.jpg)
 
-This repository is starting point for BKs to create radio application.
+This repository is the starting point for BKs to create a radio/FM application.
 
 ---
 

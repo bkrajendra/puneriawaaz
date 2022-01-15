@@ -23,15 +23,14 @@ export class AboutPage implements OnInit {
     this.cloud.getSettings().subscribe(data => {
       this.settingsData = data;
       console.log(this.settingsData);
-      this.loader.dismiss();
     });
   }
 
   async presentLoading() {
     const loading = await this.loader.create({
-      cssClass: 'my-custom-class',
       message: 'Please wait...',
-      duration: 10000
+      duration: 10000,
+      spinner: 'circular',
     });
     await loading.present();
 

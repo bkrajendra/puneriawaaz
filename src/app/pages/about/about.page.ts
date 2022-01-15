@@ -10,6 +10,7 @@ import { CloudService } from 'src/app/services/cloud.service';
 export class AboutPage implements OnInit {
 
   settingsData: any = {};
+
   constructor(
     private cloud: CloudService,
     private loader: LoadingController

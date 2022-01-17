@@ -22,9 +22,9 @@ jobs:
         run: npm install
 
         uses: sparkfabrik/android-build-action@v1.0.0
-          with:
-            project-path: ./platforms/android/
-            output-path: my-app.apk        
+        with:
+          project-path: ./platforms/android/
+          output-path: my-app.apk        
 
       - name: Generate the Android App Bundle
         working-directory: ./platforms/android/

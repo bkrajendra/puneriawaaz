@@ -14,7 +14,7 @@ jobs:
 
       - name: Install Cordova
         run: npm install -g cordova
-        
+
       - name: Install Ionic
         run: npm install -g @ionic/cli
 
@@ -32,9 +32,12 @@ jobs:
       - name: Add Android platform
         run: ionic cordova platform add android@latest
 
-      - name: Build debug APK
-        working-directory: ./platforms/android/
-        run: bash ./gradlew assembleDebug --stacktrace
+      - name: Build Android platform
+        run: ionic cordova build android
+
+      # - name: Build debug APK
+      #   working-directory: ./platforms/android/
+      #   run: bash ./gradlew assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v1

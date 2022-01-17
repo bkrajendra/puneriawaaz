@@ -7,36 +7,24 @@ jobs:
     name: Build APK
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v2
-
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
 
-      - name: Install Cordova
-        run: npm install -g cordova
-
       - name: Install Ionic
         run: npm install -g @ionic/cli
+
+      - name: Checkout source
+        uses: actions/checkout@v2
 
       - name: Install app dependencies
         run: npm install
 
-      - name: Use oxr463/setup-cordova
-        uses: oxr463/setup-cordova@0.0.3
-        with:
-          exec: |
-            cordova platform add android && \
-            cordova build --no-telemetry && \
-            cp "$(find . -name '*.apk')" .
-
-      - name: Build Android Dev APK
-        run: ionic cordova build android
-
-      - name: Build Android Release APK
-        run: ionic cordova build android --release --prod
+        uses: sparkfabrik/android-build-action@v1.0.0
+          with:
+            project-path: ./platforms/android/
+            output-path: my-app.apk        
 
       - name: Generate the Android App Bundle
         working-directory: ./platforms/android/

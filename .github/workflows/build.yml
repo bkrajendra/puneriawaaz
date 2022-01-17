@@ -32,6 +32,12 @@ jobs:
       - name: Add Android platform
         run: ionic cordova platform add android@latest
 
+      - name: rm Android platform
+        run: ionic cordova platform rm android
+
+      - name: add Android platform
+        run: ionic cordova platform add android
+
       - name: Build Android platform
         run: ionic cordova build android
 

@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="tertiary">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -13,7 +13,9 @@
       <ion-card-title>Privacy Policy</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Our privacy policy states that bla bla bla blah blah blah.
+      
+        <div [innerHTML]="settingsData.privacy"></div>
+      
     </ion-card-content>
   </ion-card>
 </ion-content>

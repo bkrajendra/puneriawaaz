@@ -1,9 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>contact</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Contact</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  
+  <ion-item>
+    <div [innerHTML]="settingsData.contact_us"></div>
+  </ion-item>
 
+  <ion-item style="color:grey;font-size:0.8rem" vertical="end">
+    
+  </ion-item>
 </ion-content>

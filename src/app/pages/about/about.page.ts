@@ -18,7 +18,7 @@ export class AboutPage implements OnInit {
 
   ngOnInit(): void {
     this.getSettings();
-    this.presentLoading();
+    //this.presentLoading();
   }
   getSettings(): void {
     this.cloud.getSettings().subscribe(data => {
@@ -30,7 +30,7 @@ export class AboutPage implements OnInit {
   async presentLoading() {
     const loading = await this.loader.create({
       message: 'Please wait...',
-      duration: 10000,
+      duration: 1000,
       spinner: 'circular',
     });
     await loading.present();

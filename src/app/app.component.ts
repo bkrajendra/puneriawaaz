@@ -21,6 +21,11 @@ export class AppComponent {
   constructor(
     private screenOrientation: ScreenOrientation
   ) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    try {
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    }
+    catch(e) {
+      console.error(e.message);
+    }
   }
 }

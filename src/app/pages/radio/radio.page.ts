@@ -28,7 +28,7 @@ export class RadioPage implements OnInit {
       this.stop();
     } else {
       this.loader = true;
-      this.play('https://icecast.bkwsu.eu/radio-awaz-pune16k.mp3');
+      this.play('https://icecast.bkwsu.eu/radio-awaz-pune.mp3');
     }
 
     this.player.on('end', () => { this.onEnd(); })

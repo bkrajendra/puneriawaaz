@@ -14,7 +14,7 @@
     </ion-card-header>
     <ion-card-content>
       
-        <div [innerHTML]="settingsData.privacy"></div>
+        <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(settingsData.privacy)"></div>
       
     </ion-card-content>
   </ion-card>

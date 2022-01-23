@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { LoadingController } from '@ionic/angular';
 import { CloudService } from 'src/app/services/cloud.service';
 
@@ -13,7 +14,8 @@ export class AboutPage implements OnInit {
 
   constructor(
     private cloud: CloudService,
-    private loader: LoadingController
+    private loader: LoadingController,
+    public sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {

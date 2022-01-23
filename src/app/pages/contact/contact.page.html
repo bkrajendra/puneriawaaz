@@ -10,7 +10,7 @@
 <ion-content>
   
   <ion-item>
-    <div [innerHTML]="settingsData.contact_us"></div>
+    <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(settingsData.contact_us)"></div>
   </ion-item>
 
   <ion-item style="color:grey;font-size:0.8rem" vertical="end">

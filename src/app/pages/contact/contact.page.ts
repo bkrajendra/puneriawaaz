@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { LoadingController } from '@ionic/angular';
 import { CloudService } from 'src/app/services/cloud.service';
 
@@ -6,13 +7,15 @@ import { CloudService } from 'src/app/services/cloud.service';
   selector: 'app-contact',
   templateUrl: './contact.page.html',
   styleUrls: ['./contact.page.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ContactPage implements OnInit {
   settingsData: any = {};
 
   constructor(
     private cloud: CloudService,
-    private loader: LoadingController
+    private loader: LoadingController,
+    public sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {

@@ -11,3 +11,24 @@ ion-spinner#loader {
 } 
    
 //    --background: url("/assets/bg.jpg") no-repeat center/cover fixed;
+
+.rplay  {
+    margin: -20px;
+    width: 120px;
+    height: 120px;
+    line-height: 80px;
+}
+.rplay > ion-icon {
+    margin: -40px;
+    width: 50px;
+    height: 50px;
+    line-height: 80px;
+}
+
+canvas {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-bottom: -3px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.7),
+                0 3px 4px rgba(0,0,0,0.7);
+  }

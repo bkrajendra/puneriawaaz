@@ -7,9 +7,13 @@
             <ion-avatar>
               <img src="assets/icon/favicon.png">
             </ion-avatar>
-            Puneri Awaaz
+            Puneri Awaz
+            <ion-button (click)="shareIt()">
+              <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+            </ion-button>
           </ion-list-header>
 
+          
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon color="primary" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>

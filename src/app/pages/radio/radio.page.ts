@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RadioService } from 'src/app/services/radio.service';
 
-import { Howl } from 'howler';
+import { Howl, Howler } from 'howler';
+
+
+
 
 @Component({
   selector: 'app-radio',
@@ -13,6 +16,14 @@ export class RadioPage implements OnInit {
   public loader: boolean;
 
   public playState: boolean = false;
+
+  bufferLengthAlt;
+  dataArrayAlt;
+
+  //@ViewChild('myCanvas');
+  //@ViewChild('myCanvas', {static: false}) myCanvas: ElementRef;
+  //myCanvas: ElementRef<HTMLCanvasElement>;
+
   constructor(
     private rs: RadioService
   ) { }
@@ -21,14 +32,18 @@ export class RadioPage implements OnInit {
     console.log(this.playState);
     this.loader = false;
 
+    let ctx = Howler.ctx;
+    //this.play('http://stream.zeno.fm/wqceshe7rchvv');
 
   }
+
+
   playRadio(isPlaying: boolean) {
     if (isPlaying) {
       this.stop();
     } else {
       this.loader = true;
-      this.play('https://icecast.bkwsu.eu/radio-awaz-pune.mp3');
+      this.play('http://stream.zeno.fm/wqceshe7rchvv');
     }
 
     this.player.on('end', () => { this.onEnd(); })
@@ -41,6 +56,7 @@ export class RadioPage implements OnInit {
     console.log("loaded..");
     console.log(this.playState);
     this.loader = false;
+
   }
   onEnd() {
     console.log("ended..");

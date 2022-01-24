@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,9 @@ export class AppComponent {
   constructor(
     private screenOrientation: ScreenOrientation,
     private platform: Platform,
-    private sshare: SocialSharing
+    private sshare: SocialSharing,
+    private _location: Location,
+    private alertController: AlertController
   ) {
     console.log(this.screenOrientation.lock);
     if (this.screenOrientation.lock) {
@@ -37,8 +40,32 @@ export class AppComponent {
       catch(e) {
         console.error(e.message);
       }
-      //this.statusBar.styleDefault();
-      //this.splashScreen.hide();
+    });
+
+    this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {
+      console.log('Back press handler!');
+      if (this._location.isCurrentPathEqualTo('/home')) {
+
+        // Show Exit Alert!
+        console.log('Show Exit Alert!');
+        this.showExitConfirm();
+        processNextHandler();
+      } else {
+
+        // Navigate to back page
+        console.log('Navigate to back page');
+        this._location.back();
+      }
+    });
+    this.platform.backButton.subscribeWithPriority(5, () => {
+      console.log('Handler called to force close!');
+      this.alertController.getTop().then(r => {
+        if (r) {
+          navigator['app'].exitApp();
+        }
+      }).catch(e => {
+        console.log(e);
+      })
     });
   }
 
@@ -65,4 +92,27 @@ export class AppComponent {
   onError(msg) {
     console.log("Sharing failed with message: " + msg);
   };
+
+  showExitConfirm() {
+    this.alertController.create({
+      header: 'App termination',
+      message: 'Do you want to close the app?',
+      backdropDismiss: false,
+      buttons: [{
+        text: 'Stay',
+        role: 'cancel',
+        handler: () => {
+          console.log('Application exit prevented!');
+        }
+      }, {
+        text: 'Exit',
+        handler: () => {
+          navigator['app'].exitApp();
+        }
+      }]
+    })
+      .then(alert => {
+        alert.present();
+      });
+  }
 }

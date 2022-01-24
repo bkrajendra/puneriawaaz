@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'join',
     loadChildren: () => import('./pages/join/join.module').then( m => m.JoinPageModule)
+  },
+  {
+    path: 'feedback',
+    loadChildren: () => import('./pages/feedback/feedback.module').then( m => m.FeedbackPageModule)
   }
 ];
 

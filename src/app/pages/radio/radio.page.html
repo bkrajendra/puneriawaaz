@@ -19,9 +19,8 @@
     </ion-fab-button>
   </ion-fab>
 
-  <div class="ion-text-center mt">
-    <ion-spinner id="loader" color="tertiary" *ngIf="loader"></ion-spinner>
-    
+  <div class="center" *ngIf="loader">
+    <h1 class="bottom">Loading...</h1>
+    <ion-progress-bar class="bottom" type="indeterminate" color="tertiary"></ion-progress-bar>
   </div>
-  <br><br><br>
 </ion-content>

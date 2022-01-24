@@ -1,10 +1,11 @@
-.mt {
-    margin-top: 3rem;
-}
 
-ion-spinner#loader {
-    width: 3rem;
-    height: 3rem;
+.bottom {
+    position: absolute;
+    display: block;
+    bottom: 0;
+}
+.center {
+    text-align: center;
 }
 .bg-image {
     --background: url("/assets/bg.png") 0 0/100% 100% no-repeat

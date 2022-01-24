@@ -12,4 +12,8 @@ export class JoinPage implements OnInit {
   ngOnInit() {
   }
 
+  join() {
+    console.log('join');
+  }
+
 }

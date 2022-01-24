@@ -9,11 +9,27 @@
 
 <ion-content>
   
-  <ion-item>
-    <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(settingsData.contact_us)"></div>
-  </ion-item>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Contact Details</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(settingsData.contact_us)"></div>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Location</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h1>
+        <ion-icon name="map-outline"></ion-icon>
+      </h1>
+      Coming Soon...
+    </ion-card-content>
+  </ion-card>
 
-  <ion-item style="color:grey;font-size:0.8rem" vertical="end">
-    
-  </ion-item>
 </ion-content>

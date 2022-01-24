@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-feedback',
@@ -7,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackPage implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
   }
 
   submitFeedback() {
-    alert('Submitted.');
+    console.log('feedback');
   }
 
 }

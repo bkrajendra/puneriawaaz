@@ -15,7 +15,7 @@ export class AppComponent {
     {title: 'Feedback', url: '/feedback', icon: 'share'},
     {title: 'About', url: '/about', icon: 'help-circle'},
     {title: 'Contact', url: '/contact', icon: 'mail'},
-    // {title: 'Join', url: '/join', icon: 'add-circle'},
+    {title: 'Join', url: '/join', icon: 'add-circle'},
     {title: 'Privacy Policy', url: '/privacy', icon: 'shield-half'},
    ];
   

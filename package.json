@@ -85,7 +85,8 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-screen-orientation": {},
-      "cordova-plugin-x-socialsharing": {}
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-androidx-adapter": {}
     },
     "platforms": [
       "ios",

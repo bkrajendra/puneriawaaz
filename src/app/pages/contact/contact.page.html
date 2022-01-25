@@ -9,27 +9,50 @@
 
 <ion-content>
   
+
   <ion-card>
+    <img src="/assets/contact.png" alt="ion">
+
     <ion-card-header>
-      <ion-card-title>Contact Details</ion-card-title>
+      <ion-card-subtitle>Community Radio</ion-card-subtitle>
+      <ion-card-title>Puneri Awaz 107.8 FM</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-item>
-        <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(settingsData.contact_us)"></div>
-      </ion-item>
+      <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(settingsData.contact_us)"></div>
     </ion-card-content>
-  </ion-card>
   
+    
+    <ion-footer>
+      <ion-row>
+        <!-- <ion-col center text-center>
+          <ion-button>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <span>1.5k Likes</span>
+          </ion-button>
+        </ion-col>
+
+        <ion-col center text-center>
+          <ion-button>
+            <ion-icon name="time"></ion-icon>
+            <div>11h ago</div>
+          </ion-button>
+        </ion-col> -->
+      </ion-row>
+    </ion-footer>
+  </ion-card>
+
   <ion-card>
     <ion-card-header>
       <ion-card-title>Location</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <h1>
-        <ion-icon name="map-outline"></ion-icon>
-      </h1>
-      Coming Soon...
+      <div #mapCanvas id="mapCanvas" class="map-canvas"></div>
+      <br><br>
+      <br><br>
+      <br><br>
+      <br><br>
     </ion-card-content>
+    
   </ion-card>
 
 </ion-content>

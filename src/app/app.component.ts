@@ -74,8 +74,7 @@ export class AppComponent {
       message: 'Share Puneri Awaz', // not supported on some apps (Facebook, Instagram)
       subject: 'Share Puneri Awaz', // fi. for email
       url: 'https://puneriawaz.in/',
-      chooserTitle: 'Pick an app', // Android only, you can override the default share sheet title
-      appPackageName: 'com.whatsapp', // Android only, you can provide id of the App you want to share with
+      chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
     };
 
     this.sshare.shareWithOptions(options).then(data=>{

@@ -69,7 +69,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: puneriawaz-bundle
-          path: platforms/android/app/build/outputs/bundle/release/app.aab
+          path: platforms/android/app/build/outputs/bundle/debug/app-debug.aab
 
       # - name: Upload release bundle
       #   uses: actions/upload-artifact@v1

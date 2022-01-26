@@ -44,7 +44,7 @@ export class AppComponent {
 
     this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {
       console.log('Back press handler!');
-      if (this._location.isCurrentPathEqualTo('/home')) {
+      if (this._location.isCurrentPathEqualTo('/radio')) {
 
         // Show Exit Alert!
         console.log('Show Exit Alert!');
@@ -94,7 +94,7 @@ export class AppComponent {
 
   showExitConfirm() {
     this.alertController.create({
-      header: 'App termination',
+      header: 'Close App?',
       message: 'Do you want to close the app?',
       backdropDismiss: false,
       buttons: [{

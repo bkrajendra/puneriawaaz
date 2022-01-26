@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { CloudService } from 'src/app/services/cloud.service';
 
 @Component({
   selector: 'app-join',
@@ -6,14 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./join.page.scss'],
 })
 export class JoinPage implements OnInit {
-
-  constructor() { }
+  joinForm = this.fb.group({
+    name:['', Validators.required],
+    email: ['', Validators.required],
+    bio:['', Validators.required]
+  });
+  constructor(
+    private cld: CloudService,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
+
   }
 
   join() {
-    console.log('join');
+    console.log(this.joinForm.value);
+    this.cld.postJoin({}).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

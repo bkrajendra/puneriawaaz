@@ -18,19 +18,21 @@
         <ion-list-header>
           Fill out the following Feedback form.
         </ion-list-header>
+        <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
         <ion-item>
           <ion-label position="floating">Name</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" formControlName="name"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-input type="email" formControlName="email"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Feedback</ion-label>
-          <ion-textarea></ion-textarea>
+          <ion-textarea formControlName="feedback"></ion-textarea>
         </ion-item>
-        <ion-button size="medium" (click)="submitFeedback()">Submit</ion-button>
+        <ion-button type="submit" size="medium" [disabled]="!feedbackForm.valid" >Submit</ion-button>
+      </form>
       </ion-list>
     </ion-card-content>
   </ion-card>

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Schedule } from './schedule';
@@ -15,13 +15,25 @@ export class CloudService {
   public getSchedule(): Observable<Schedule[]> {
     return this.http.get<Schedule[]>("https://iocare.in/api/schedules");
   }
-  public getRecordings(): Observable<Schedule[]> {
-    return this.http.get<Schedule[]>("https://iocare.in/api/recordings");
+  public getRecordings(): Observable<any[]> {
+    return this.http.get<any[]>("https://iocare.in/api/recordings");
   }
   public getSettings(): Observable<any[]> {
     return this.http.get<any[]>("https://iocare.in/api/settings");
   }
-  public getNews(): Observable<Schedule[]> {
-    return this.http.get<Schedule[]>("https://iocare.in/api/schedules");
+  public getNews(): Observable<any[]> {
+    return this.http.get<any[]>("https://iocare.in/api/schedules");
+  }
+  public geListeners(): Observable<any[]> {
+    //const headers = new HttpHeaders({ 'Content-Type': 'text/xml' }).set('Accept', 'text/xml');
+    const headers = new HttpHeaders({});
+    return this.http.get<any[]>("https://icecast.bkwsu.eu/status-json.xsl",{ headers});
+  }
+  public postFeedback(data): Observable<any[]> {
+    //const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any[]>("https://iocare.in/api/v1/feedback", data);
+  }
+  public postJoin(data): Observable<any[]> {
+    return this.http.post<any[]>("https://iocare.in/api/v1/join", data);
   }
 }

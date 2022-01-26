@@ -17,19 +17,22 @@
         <ion-list-header>
           Fill this form with your details and personal description.
         </ion-list-header>
+        <form [formGroup]="joinForm" (ngSubmit)="join()">
         <ion-item>
           <ion-label position="floating">Name</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" formControlName="name"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-input type="email" formControlName="email"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Bio</ion-label>
-          <ion-textarea></ion-textarea>
+          <ion-label position="floating" >Bio</ion-label>
+          <ion-textarea formControlName="bio"></ion-textarea>
         </ion-item>
-        <ion-button size="medium" (click)="join()">Join</ion-button>
+        <ion-button type="submit" size="medium" [disabled]="!joinForm.valid" >Join</ion-button>
+
+      </form>
       </ion-list>
     </ion-card-content>
   </ion-card>

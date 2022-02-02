@@ -30,9 +30,14 @@ export class CloudService {
     return this.http.get<any[]>("https://icecast.bkwsu.eu/status-json.xsl",{ headers});
   }
   public postFeedback(data): Observable<any[]> {
-    //const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any[]>("https://iocare.in/api/v1/feedback", data);
+    let ddata ={
+      title: "lesson3",
+      userId: 1
+    };
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any[]>("https://jsonplaceholder.typicode.com/posts", ddata, {headers});
   }
+
   public postJoin(data): Observable<any[]> {
     return this.http.post<any[]>("https://iocare.in/api/v1/join", data);
   }

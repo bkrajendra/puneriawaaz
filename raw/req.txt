@@ -1,0 +1,42 @@
+Feedback +
+n,e,fb
+send email vb
+--
+
+Join +
+send email vb
+--
+
++ Open with Google map==
+
+
+
++about photo ==
++icons in contact==
++ 185 - off, 005 - phonein==
++radio - listen now==
++ All texts in green==
+
+
++Listen now, About, Schedule, Join, Feedback, Contact, Privacy==
+Live Now==
++cut puneri awaz logo icon launcher - cut 107.8fm
+SOcial Media Icons==
++ Status notification.==
+ 
+
+resource generation does not work then run:
+npm install -g cordova-res --unsafe-perm=true
+
+ionic cordova build android --no-resources
+ionic cordova runandroid --no-resources
+
++bg image -center button o tower
+
+push notification+
+dark mode switch +
+
+
++ Call handling.
++ Animated splash
++accesibilty

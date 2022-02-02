@@ -18,15 +18,29 @@
       
     </ion-fab-button>
   </ion-fab>
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed" *ngIf="listeners>0">
+  <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed" *ngIf="listeners>0">
     <ion-fab-button color="tertiary">
       <ion-badge color="success">{{listeners}}</ion-badge>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
+
+  <!-- <div id="content">cccc
+    <canvas #myCanvas id="canvas"></canvas>
+  </div> -->
   
+  <div id="equalizer" class="bottom" *ngIf="equilizerState">
+    <div id="horizontal"></div>
+    <div id="vertical-lines">
+      <ng-container *ngFor="let item of range(120)">
+        <div class="vertical" [ngStyle]="{'animation': 'equalizer '+ rnd() +'s ease infinite'}"></div>
+      </ng-container>
+    </div>
+  </div>
+
   <div class="center" *ngIf="loader">
     
-    <h5 class="bottom">Loading stream...</h5>
+    <div class="bottom"><h5 class="loading-text ion-text-center" >Loading stream...</h5></div>
     <ion-progress-bar class="bottom" value="0.25" buffer="0.5" color="primary"></ion-progress-bar>
+    
   </div>
 </ion-content>

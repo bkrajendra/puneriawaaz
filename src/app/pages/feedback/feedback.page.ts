@@ -11,8 +11,7 @@ import { CloudService } from 'src/app/services/cloud.service';
 export class FeedbackPage implements OnInit {
   feedbackForm = this.fb.group({
     name:['', Validators.required],
-    email: ['', Validators.email],
-    feedback:['', Validators.required]
+    subject_id:['', Validators.required]
   });
   constructor(
     private cld: CloudService,

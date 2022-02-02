@@ -11,12 +11,12 @@ import { Location } from '@angular/common';
 })
 export class AppComponent {
   public appPages = [
-    {title: 'Radio', url: '/radio', icon: 'radio'},
-    {title: 'Schedule', url: '/schedule', icon: 'calendar'},
-    {title: 'Feedback', url: '/feedback', icon: 'share'},
+    {title: 'Listen Now', url: '/radio', icon: 'radio'},
     {title: 'About', url: '/about', icon: 'help-circle'},
-    {title: 'Contact', url: '/contact', icon: 'mail'},
+    {title: 'Schedule', url: '/schedule', icon: 'calendar'},
     {title: 'Join', url: '/join', icon: 'add-circle'},
+    {title: 'Feedback', url: '/feedback', icon: 'share'},
+    {title: 'Contact', url: '/contact', icon: 'mail'},
     {title: 'Privacy Policy', url: '/privacy', icon: 'shield-half'},
    ];
   

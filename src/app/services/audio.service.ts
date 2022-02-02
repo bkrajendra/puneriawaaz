@@ -38,6 +38,30 @@ export class AudioService {
   constructor() {
   }
 
+  public static _audioContext: any = null;
+//......
+public static getAudioContext(): any {
+  if (!AudioService._audioContext) {
+    try {
+      if (typeof AudioContext !== "undefined") {
+        // We have an AudioContext type, so use it.
+        AudioService._audioContext = new AudioContext();
+      } else if (window['webkitAudioContext'] !== "undefined") {
+        // We don't have AudioContext, but we do have webkitAudioContext,
+        // so attempt to use that.
+        AudioService._audioContext = new ((<any>window).AudioContext || (<any>window).webkitAudioContext)();
+      } else {
+        throw new Error('AudioContext not supported. :(');
+      }
+    } catch (err) {
+      console.log(err.message);
+      alert('Cannot create audio context.');
+      throw err;
+    }
+  }
+  return AudioService._audioContext;
+}
+
   private updateStateEvents(event: Event): void {
     switch (event.type) {
       case "canplay":
@@ -88,6 +112,23 @@ export class AudioService {
       this.audioObj.src = url;
       this.audioObj.load();
       this.audioObj.play();
+
+      //let context = new AudioContext();
+      //let src = context.createMediaElementSource(this.audioObj);
+      // let analyser = context.createAnalyser();
+
+      // let canvas = document.getElementById("canvas");
+      // canvas.style.width = window.innerWidth + "px";
+      // canvas.style.height = window.innerHeight + "px";
+      //var ctx = canvas.getContext("2d");
+  
+    //   var bufferLength = analyser.frequencyBinCount;
+    // console.log(bufferLength);
+
+    //   src.connect(analyser);
+    //   analyser.connect(context.destination);
+  
+    //   analyser.fftSize = 256;
 
       const handler = (event: Event) => {
         this.updateStateEvents(event);

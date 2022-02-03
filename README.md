@@ -1,7 +1,7 @@
 # Puner Awaaz - Online Radio Service
 
 ![example workflow](https://github.com/bkrajendra/puneriawaaz/actions/workflows/build.yml/badge.svg)
-
+[![Github all releases](https://img.shields.io/github/downloads/bkrajendra/puneriawaaz/total.svg)](https://GitHub.com/bkrajendra/puneriawaaz/releases/)
 
 ![image info](./raw/logo.jpg)
 

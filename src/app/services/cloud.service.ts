@@ -31,10 +31,10 @@ export class CloudService {
   }
   public postFeedback(data): Observable<any[]> {
     //const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any[]>("http://localhost:8081/api/v1/feedback", data);
+    return this.http.post<any[]>(this.apiBaseUrl + "feedback", data);
   }
 
   public postJoin(data): Observable<any[]> {
-    return this.http.post<any[]>("https://iocare.in/api/v1/join", data);
+    return this.http.post<any[]>(this.apiBaseUrl + "join", data);
   }
 }

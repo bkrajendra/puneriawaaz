@@ -3,9 +3,18 @@
 ![example workflow](https://github.com/bkrajendra/puneriawaaz/actions/workflows/build.yml/badge.svg)
 [![Github all releases](https://img.shields.io/github/downloads/bkrajendra/puneriawaaz/total.svg)](https://GitHub.com/bkrajendra/puneriawaaz/releases/)
 
-![image info](./raw/logo.jpg)
+
+<p float="left">
+  <img src="./raw/puneri-awaz-radio.png" width="150" />
+  <img src="./raw/puneriawaz-sidemenu.png" width="150" /> 
+  <img src="./raw/puneri-awaz-contact.png" width="150" />
+  <img src="./raw/puneri-awaz-schedule.png" width="150" />
+</p>
 
 This repository is the starting point for BKs to create a radio/FM application.
+
+Download Latest Android release at:
+https://github.com/bkrajendra/puneriawaaz/releases/latest
 
 ---
 
@@ -71,3 +80,4 @@ This will build the app simply and put the built contents into the 'www' directo
 * Upload the zip to a web server or some sort of localhost or an http server as it cannot run locally.
 * Then unzip it and open the 'index.html' file of the built contents in a web browser.
 This will be pretty much same as the development server, only now you can distribute it.
+

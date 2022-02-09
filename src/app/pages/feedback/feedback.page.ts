@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { CloudService } from 'src/app/services/cloud.service';
 
 @Component({
@@ -11,20 +11,32 @@ import { CloudService } from 'src/app/services/cloud.service';
 export class FeedbackPage implements OnInit {
   feedbackForm = this.fb.group({
     name:['', Validators.required],
-    subject_id:['', Validators.required]
+    email:['', [Validators.email, Validators.required]],
+    feedback:['', Validators.required]
   });
   constructor(
     private cld: CloudService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public toastController: ToastController
   ) { }
 
   ngOnInit() {
   }
-
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 3000
+    });
+    toast.present();
+  }
   submitFeedback() {
     console.log(this.feedbackForm.value);
-    this.cld.postFeedback(this.feedbackForm.value).subscribe(data => {
+    this.cld.postFeedback(this.feedbackForm.value).subscribe((data:any) => {
       console.log(data);
+      if (data.status==='sent') {
+        this.presentToast("Email Sent!");
+        this.feedbackForm.reset();
+      }
     });
   }
 

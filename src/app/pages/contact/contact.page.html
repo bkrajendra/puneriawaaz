@@ -19,6 +19,10 @@
     </ion-card-header>
     <ion-card-content>
       <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(settingsData.contact_us)"></div>
+
+      <div class="ion-text-center">
+        <ion-button color="primary" href="https://www.google.com/maps/dir/?api=1&travelmode=driving&layer=traffic&destination=18.6032531,73.7869188" target="_blank"><ion-icon name="map-outline"></ion-icon> Get Directions</ion-button>
+      </div>
     </ion-card-content>
   
     
@@ -52,9 +56,7 @@
       <br><br>
       <br><br>
     </ion-card-content>
-    <div class="ion-text-center">
-      <ion-button color="primary" href="https://www.google.com/maps/dir/?api=1&travelmode=driving&layer=traffic&destination=18.6032531,73.7869188" target="_blank"><ion-icon name="map-outline"></ion-icon> Open with Google Map</ion-button>
-    </div>
+    
     
        
   </ion-card>

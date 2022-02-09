@@ -121,32 +121,6 @@ export class RadioPage implements OnInit, AfterViewInit, AfterContentChecked {
       this.musicControls.updateIsPlaying(d.playing);
     });
     this.showMusicControl();
-    //if (this.audioService.getState().)
-    //this.equilizerState = false;
-    //options = {type:"bars"};
-    //const audioContext = new (window.AudioContext)();
-    //const canvasCtx = this.myCanvas.nativeElement.getContext("2d");
-
-    // const track = audioContext.createMediaElementSource(
-    //   //audioElement
-    // );
-  //track.connect(audioContext.destination);
-
-    //const analyser = audioContext.createAnalyser();
-
-    // navigator.mediaDevices
-    //   .getUserMedia({
-    //     audio: true,
-    //   })
-    //   .then(function (stream) {
-    //     this.wave.fromStream(stream, 'myCanvas', {
-    //       type: 'shine',
-    //       colors: ['red', 'white', 'blue'],
-    //     });
-    //   })
-    //   .catch(function (err) {
-    //     console.log(err.message);
-    //   });
   }
 
   ngAfterViewInit(): void {
@@ -164,7 +138,7 @@ export class RadioPage implements OnInit, AfterViewInit, AfterContentChecked {
       cssClass: 'success',
       header: 'Error',
       subHeader: 'Stream Error!',
-      message: 'Unable to fetch the stream. Retry after some time.',
+      message: 'Unable to fetch the stream. Retry after some time or contact us on +91 8888058766.',
       buttons: ['OK'],
     });
 
@@ -195,10 +169,10 @@ export class RadioPage implements OnInit, AfterViewInit, AfterContentChecked {
   showMusicControl(){
     this.musicControls.create({
       track       : 'Puneri Awaz 107.8 FM',        // optional, default : ''
-      artist      : 'Brahmakumaris',                       // optional, default : ''
-      cover       : 'assets/icon/favicon.png',      // optional, default : nothing
+      artist      : 'Khush Raho Khushiyan Banto!',               // optional, default : ''
+      cover       : 'assets/album-art.png',     // optional, default : nothing
       // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
-      //           or a remote url ('http://...', 'https://...', 'ftp://...')
+      // or a remote url ('http://...', 'https://...', 'ftp://...')
       isPlaying   : true,                         // optional, default : true
       dismissable : false,                         // optional, default : false
     
@@ -241,10 +215,10 @@ export class RadioPage implements OnInit, AfterViewInit, AfterContentChecked {
                     // Do something
                     break;
                 case 'music-controls-pause':
-                    // Do something
+                    this.pause();
                     break;
                 case 'music-controls-play':
-                    // Do something
+                    this.play(this.state.playing);
                     break;
                 case 'music-controls-destroy':
                     // Do something
@@ -252,7 +226,7 @@ export class RadioPage implements OnInit, AfterViewInit, AfterContentChecked {
     
              // External controls (iOS only)
              case 'music-controls-toggle-play-pause' :
-                    // Do something
+                    this.play(this.state.playing);
                     break;
              case 'music-controls-seek-to':
                const seekToInSeconds = JSON.parse(action).position;
@@ -272,13 +246,13 @@ export class RadioPage implements OnInit, AfterViewInit, AfterContentChecked {
                 // Headset events (Android only)
                 // All media button events are listed below
                 case 'music-controls-media-button' :
-                    // Do something
+                    this.play(this.state.playing);
                     break;
                 case 'music-controls-headset-unplugged':
-                    // Do something
+                    this.pause();
                     break;
                 case 'music-controls-headset-plugged':
-                    // Do something
+                    this.play(this.state.playing);
                     break;
                 default:
                     break;

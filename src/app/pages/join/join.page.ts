@@ -10,7 +10,7 @@ import { CloudService } from 'src/app/services/cloud.service';
 export class JoinPage implements OnInit {
   joinForm = this.fb.group({
     name:['', Validators.required],
-    email: ['', Validators.required],
+    email:['', [Validators.email, Validators.required]],
     bio:['', Validators.required]
   });
   constructor(

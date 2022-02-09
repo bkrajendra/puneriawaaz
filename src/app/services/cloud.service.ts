@@ -7,7 +7,7 @@ import { Schedule } from './schedule';
   providedIn: 'root'
 })
 export class CloudService {
-
+  apiBaseUrl: string  = "https://puneriawaz.herokuapp.com/api/v1/";
   constructor(
     private http: HttpClient
   ) { }
@@ -30,12 +30,8 @@ export class CloudService {
     return this.http.get<any[]>("https://icecast.bkwsu.eu/status-json.xsl",{ headers});
   }
   public postFeedback(data): Observable<any[]> {
-    let ddata ={
-      title: "lesson3",
-      userId: 1
-    };
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any[]>("https://jsonplaceholder.typicode.com/posts", ddata, {headers});
+    //const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any[]>("http://localhost:8081/api/v1/feedback", data);
   }
 
   public postJoin(data): Observable<any[]> {

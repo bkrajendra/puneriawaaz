@@ -25,7 +25,7 @@ export class FeedbackPage implements OnInit {
   async presentToast(msg: string) {
     const toast = await this.toastController.create({
       message: msg,
-      duration: 3000
+      duration: 5000
     });
     toast.present();
   }
@@ -33,11 +33,12 @@ export class FeedbackPage implements OnInit {
     console.log(this.feedbackForm.value);
     this.cld.postFeedback(this.feedbackForm.value).subscribe((data:any) => {
       console.log(data);
+      alert("Email Sent!");
       if (data.status==='sent') {
         this.presentToast("Email Sent!");
         this.feedbackForm.reset();
       }
-    });
+    }, (e) => {this.presentToast("Error Sending email!"); console.log(e);});
   }
 
 }

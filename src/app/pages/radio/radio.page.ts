@@ -173,7 +173,7 @@ export class RadioPage implements OnInit, AfterViewInit, AfterContentChecked {
       cover       : 'assets/album-art.png',     // optional, default : nothing
       // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
       // or a remote url ('http://...', 'https://...', 'ftp://...')
-      isPlaying   : true,                         // optional, default : true
+      isPlaying   : this.state.playing,                         // optional, default : true
       dismissable : false,                         // optional, default : false
     
       // hide previous/next/close buttons:
@@ -185,11 +185,7 @@ export class RadioPage implements OnInit, AfterViewInit, AfterContentChecked {
       album       : 'Puneri Awaz',     // optional, default: ''
       duration : 0, // optional, default: 0
       elapsed : 0, // optional, default: 0
-      //hasSkipForward : true,  // show skip forward button, optional, default: false
-      //hasSkipBackward : true, // show skip backward button, optional, default: false
-      //skipForwardInterval: 15, // display number for skip forward, optional, default: 0
-      //skipBackwardInterval: 15, // display number for skip backward, optional, default: 0
-      //hasScrubbing: false, // enable scrubbing from control center and lockscreen progress bar, optional
+
     
       // Android only, optional
       // text displayed in the status bar when the notification (and the ticker) are updated, optional

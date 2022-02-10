@@ -3,6 +3,7 @@ import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/n
 import { AlertController, Platform } from '@ionic/angular';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 import { Location } from '@angular/common';
+import { AppVersion } from '@awesome-cordova-plugins/app-version/ngx';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Location } from '@angular/common';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  appv: string;
   public appPages = [
     {title: 'Listen Now', url: '/radio', icon: 'radio'},
     {title: 'About', url: '/about', icon: 'help-circle'},
@@ -25,21 +27,27 @@ export class AppComponent {
     private platform: Platform,
     private sshare: SocialSharing,
     private _location: Location,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private appVersion: AppVersion
   ) {
     console.log(this.screenOrientation.lock);
     if (this.screenOrientation.lock) {
       
     }
     this.platform.ready().then(() => {
-      try {
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT).then(d=>{
-          console.log(d);
-        })
-      }
-      catch(e) {
-        console.error(e.message);
-      }
+      this.appVersion.getVersionNumber().then(v=>{
+        console.log(v);
+        this.appv = v;
+      }).catch((e) => {
+        console.log(e);
+      });
+      
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT).then(d=>{
+        console.log(d);
+      }).catch(e=>{
+        console.log(e)
+      })
+      
     });
 
     this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {

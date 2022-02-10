@@ -11,6 +11,7 @@ import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/n
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MusicControls } from '@awesome-cordova-plugins/music-controls/ngx';
+import { AppVersion } from '@awesome-cordova-plugins/app-version/ngx';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MusicControls } from '@awesome-cordova-plugins/music-controls/ngx';
     MusicControls,
     SocialSharing,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AppVersion
   ],
   bootstrap: [AppComponent],
 })

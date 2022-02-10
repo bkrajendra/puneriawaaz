@@ -11,6 +11,7 @@
             <ion-button (click)="shareIt()">
               <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
             </ion-button>
+
           </ion-list-header>
           
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
@@ -19,15 +20,14 @@
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+          <ion-item>v{{appv}}</ion-item>
         </ion-list>
+
+          
 
         <ion-list id="labels-list">
           <ion-list-header>Social Media</ion-list-header>
 
-          <!-- FB URL-https://www.facebook.com/radiopuneriawaz
-Twitter-https://twitter.com/puneriawaz
-Instagram-https://www.instagram.com/radiopuneriawaz107.8fm/
-YouTube-https://www.youtube.com/channel/UC7twd1VXDGkYPJ75T8GhVJA -->
 
           <ion-item lines="none" [href]="'https://www.facebook.com/radiopuneriawaz'">
             <ion-icon slot="start" ios="logo-facebook" md="logo-facebook" color="secondary"></ion-icon>

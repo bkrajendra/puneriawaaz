@@ -23,7 +23,7 @@
     "@awesome-cordova-plugins/core": "^5.37.3",
     "@awesome-cordova-plugins/music-controls": "^5.39.0",
     "@awesome-cordova-plugins/push": "^5.39.0",
-    "@awesome-cordova-plugins/screen-orientation": "^5.37.3",
+    "@awesome-cordova-plugins/screen-orientation": "^5.38.0",
     "@awesome-cordova-plugins/social-sharing": "^5.37.3",
     "@awesome-cordova-plugins/status-bar": "^5.37.3",
     "@foobar404/wave": "^1.2.7",

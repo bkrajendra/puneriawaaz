@@ -200,8 +200,13 @@ export class RadioPage implements OnInit, AfterViewInit, AfterContentChecked {
      });
     
      this.musicControls.subscribe().subscribe(action => {
+		this.events(action);
+  
+     });
     
-       function events(action) {
+     this.musicControls.listen(); // activates the observable above
+  }
+  events(action) {
          const message = JSON.parse(action).message;
             switch(message) {
                 case 'music-controls-next':
@@ -253,9 +258,5 @@ export class RadioPage implements OnInit, AfterViewInit, AfterContentChecked {
                 default:
                     break;
             }
-         }
-        });
-    
-     this.musicControls.listen(); // activates the observable above
-  }
+    }
 }

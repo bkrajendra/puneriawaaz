@@ -30,7 +30,7 @@
     "@ionic/angular": "^6.0.0",
     "cordova": "^11.0.0",
     "howler": "^2.2.3",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "recursive-readdir": "^2.2.2",
     "rxjs": "~6.6.0",
     "to": "^0.2.9",

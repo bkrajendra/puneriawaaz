@@ -38,8 +38,8 @@ jobs:
       - name: add androidx
         run: ionic cordova plugin add cordova-plugin-androidx-adapter
 
-      - name: rm whitelist
-        run: ionic cordova plugin rm cordova-plugin-whitelist
+      #- name: rm whitelist
+      #  run: ionic cordova plugin rm cordova-plugin-whitelist
 
       # - name: add whitelist
       #   run: cordova plugin add https://github.com/apache/cordova-plugin-file-transfer.git

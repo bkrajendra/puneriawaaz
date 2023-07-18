@@ -1,0 +1,20 @@
+{
+    "android": {
+        "debug": {
+            "keystore": "./raw/puneriawaazkeys/puneri_awaaz_sign.keystore",
+            "storePassword": "shivbaba",
+            "alias": "keystore",
+            "password" : "shivbaba",
+            "keystoreType": "",
+            "packageType": "apk"
+        },
+        "release": {
+            "keystore": "./raw/puneriawaazkeys/puneri_awaaz_sign.keystore",
+            "storePassword": "shivbaba",
+            "alias": "keystore",
+            "password" : "shivbaba",
+            "keystoreType": "",
+            "packageType": "bundle"
+        }
+    }
+}

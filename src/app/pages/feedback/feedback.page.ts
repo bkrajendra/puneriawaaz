@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { CloudService } from 'src/app/services/cloud.service';
 
 @Component({
@@ -17,7 +17,8 @@ export class FeedbackPage implements OnInit {
   constructor(
     private cld: CloudService,
     private fb: FormBuilder,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private loadingCtrl: LoadingController
   ) { }
 
   ngOnInit() {
@@ -30,6 +31,7 @@ export class FeedbackPage implements OnInit {
     toast.present();
   }
   submitFeedback() {
+    this.showLoading();
     console.log(this.feedbackForm.value);
     this.cld.postFeedback(this.feedbackForm.value).subscribe((data:any) => {
       console.log(data);
@@ -37,8 +39,20 @@ export class FeedbackPage implements OnInit {
       if (data.status==='sent') {
         this.presentToast("Email Sent!");
         this.feedbackForm.reset();
+        this.loadingCtrl.dismiss();
       }
-    }, (e) => {this.presentToast("Error Sending email!"); console.log(e);});
+    }, (e) => {
+      this.presentToast("Error Sending email!"); 
+      console.log(e);
+      this.loadingCtrl.dismiss();
+    });
   }
+  async showLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Sending message...',
+      duration: 30000,
+    });
 
+    loading.present();
+  }
 }

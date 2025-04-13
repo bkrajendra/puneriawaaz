@@ -1,0 +1,95 @@
+name: Build Android
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 22.x
+
+      - name: set legacy-peer-deps
+        run: npm config set legacy-peer-deps true
+
+
+      - name: Install Cordova
+        run: npm install -g cordova
+
+      - name: Install Ionic
+        run: npm install -g @ionic/cli
+
+      - name: Checkout source
+        uses: actions/checkout@v2
+
+      - name: Install app dependencies
+        run: npm install
+
+      - name: Install awesome-cordova-plugins
+        run: npm i @awesome-cordova-plugins/core
+
+      - name: Install ionic-native
+        run: npm i @ionic-native/core
+
+      - name: set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+
+      - name: Add Android platform
+        run: ionic cordova platform add android@latest
+
+      - name: rm Android platform
+        run: ionic cordova platform rm android
+
+      - name: add androidx
+        run: ionic cordova plugin add cordova-plugin-androidx-adapter
+
+      #- name: rm whitelist
+      #  run: ionic cordova plugin rm cordova-plugin-whitelist
+
+      # - name: add whitelist
+      #   run: cordova plugin add https://github.com/apache/cordova-plugin-file-transfer.git
+
+      - name: add Android platform
+        run: ionic cordova platform add android
+
+      - name: Build Android platform
+        run: ionic cordova build android
+
+      # - name: Build debug APK
+      #   working-directory: ./platforms/android/
+      #   run: bash ./gradlew assembleDebug --stacktrace
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: factoryvu
+          path: ./platforms/android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Generate the Android App Bundle
+        working-directory: ./platforms/android/
+        run: ./tools/gradlew bundle
+
+      - name: Upload dev APK bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: factoryvu-bundle
+          path: platforms/android/app/build/outputs/bundle/debug/app-debug.aab
+        #4
+      - name: Create Github Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          generate_release_notes: true
+          files: |
+            platforms/android/app/build/outputs/apk/debug/app-debug.apk
+            platforms/android/app/build/outputs/bundle/debug/app-debug.aab
+      # - name: Upload release bundle
+      #   uses: actions/upload-artifact@v1
+      #   with:
+      #     name: app-release
+      #     path: platforms/android/app/build/outputs/bundle/release/app.aab

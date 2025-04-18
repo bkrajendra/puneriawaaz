@@ -30,7 +30,7 @@
     "@awesome-cordova-plugins/status-bar": "^5.37.3",
     "@foobar404/wave": "^1.2.7",
     "@ionic/angular": "^6.0.0",
-    "cordova": "^11.0.0",
+    "cordova": "^12.0.0",
     "howler": "^2.2.3",
     "moment": "^2.29.1",
     "recursive-readdir": "^2.2.2",
